@@ -1,462 +1,406 @@
 /* =========================
 RESET
 ========================= */
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html,body{
-width:100%;
-overflow-x:hidden;
+    width:100%;
+    overflow-x:hidden;
 }
 
 body{
-font-family:'Segoe UI',Arial,sans-serif;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-background:linear-gradient(135deg,#d32f2f,#1976d2);
-background-size:300% 300%;
-animation:fondoAnimado 12s ease infinite;
-color:#fff;
-line-height:1.5;
+    font-family:'Segoe UI',Arial,sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,#d32f2f,#1976d2);
+    background-size:300% 300%;
+    animation:fondoAnimado 12s ease infinite;
+    color:#fff;
+    line-height:1.5;
 }
-
 
 /* =========================
 ANIMACIÓN FONDO
 ========================= */
-
 @keyframes fondoAnimado{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
-
 
 /* =========================
 HEADER
 ========================= */
-
 header{
-background:rgba(0,0,0,0.65);
-backdrop-filter:blur(12px);
-padding:15px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:15px;
-box-shadow:0 6px 20px rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.65);
+    backdrop-filter:blur(12px);
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
 }
 
 .logo-titulo{
-display:flex;
-align-items:center;
-gap:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .logo{
-height:55px;
-transition:0.3s;
+    height:55px;
+    transition:0.3s;
 }
 
 .logo:hover{
-transform:scale(1.08) rotate(5deg);
+    transform:scale(1.08) rotate(5deg);
 }
 
 header h1{
-font-size:clamp(1.2rem,2vw,1.8rem);
-text-shadow:2px 2px 6px rgba(0,0,0,0.7);
+    font-size:clamp(1.2rem,2vw,1.8rem);
+    text-shadow:2px 2px 6px rgba(0,0,0,0.7);
 }
-
 
 /* =========================
 NAV
 ========================= */
-
 nav ul{
-display:flex;
-list-style:none;
-gap:22px;
-flex-wrap:wrap;
+    display:flex;
+    list-style:none;
+    gap:22px;
+    flex-wrap:wrap;
 }
 
 nav a{
-text-decoration:none;
-color:#ffeb3b;
-font-weight:600;
-position:relative;
-transition:0.3s;
+    text-decoration:none;
+    color:#ffeb3b;
+    font-weight:600;
+    position:relative;
+    transition:0.3s;
 }
 
 nav a::after{
-content:"";
-position:absolute;
-bottom:-4px;
-left:0;
-width:0;
-height:2px;
-background:#ffeb3b;
-transition:0.3s;
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0;
+    height:2px;
+    background:#ffeb3b;
+    transition:0.3s;
 }
 
 nav a:hover{
-color:white;
+    color:white;
 }
 
 nav a:hover::after{
-width:100%;
+    width:100%;
 }
-
 
 /* =========================
 BOTON TEMA
 ========================= */
-
 .boton-tema{
-background:transparent;
-border:none;
-font-size:1.2rem;
-color:#fff;
-cursor:pointer;
+    background:transparent;
+    border:none;
+    font-size:1.2rem;
+    color:#fff;
+    cursor:pointer;
 }
-
 
 /* =========================
 HERO VOLUNTARIO
 ========================= */
-
 .perfil-hero{
-padding:40px 20px;
-display:flex;
-justify-content:center;
+    padding:40px 20px;
+    display:flex;
+    justify-content:center;
 }
 
 .hero-contenido{
-display:flex;
-gap:40px;
-align-items:center;
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(12px);
-padding:35px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-max-width:1100px;
-width:100%;
-flex-wrap:wrap;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    max-width:1100px;
+    width:100%;
+    flex-wrap:wrap;
 }
 
 .hero-foto img{
-width:260px;
-max-width:100%;
-height:auto;
-border-radius:18px;
-border:5px solid #ffeb3b;
-transition:0.4s;
-box-shadow:0 12px 35px rgba(0,0,0,0.6);
-display:block;
-margin:auto;
+    width:260px;
+    max-width:100%;
+    height:auto;
+    border-radius:18px;
+    border:5px solid #ffeb3b;
+    transition:0.4s;
+    box-shadow:0 12px 35px rgba(0,0,0,0.6);
+    display:block;
+    margin:auto;
 }
 
 .hero-foto img:hover{
-transform:scale(1.04);
-box-shadow:0 0 35px #ffeb3b;
+    transform:scale(1.04);
+    box-shadow:0 0 35px #ffeb3b;
 }
 
 .hero-nombre{
-font-size:2rem;
-color:#ffeb3b;
-margin-bottom:8px;
+    font-size:2rem;
+    color:#ffeb3b;
+    margin-bottom:8px;
 }
 
 .hero-cargo{
-font-weight:600;
-margin-bottom:15px;
+    font-weight:600;
+    margin-bottom:15px;
 }
 
 .hero-datos{
-display:flex;
-gap:25px;
-flex-wrap:wrap;
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
 .hero-dato{
-background:rgba(0,0,0,0.3);
-padding:10px 15px;
-border-radius:10px;
-font-size:0.9rem;
+    background:rgba(0,0,0,0.3);
+    padding:10px 15px;
+    border-radius:10px;
+    font-size:0.9rem;
 }
-
 
 /* =========================
 DASHBOARD GRID
 ========================= */
-
 .dashboard-voluntario{
-max-width:1200px;
-margin:auto;
-padding:30px 20px;
-width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+    width:100%;
 }
 
 .grid-dashboard{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-margin-bottom:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-bottom:30px;
 }
-
 
 /* =========================
 CARDS FLOTANTES
 ========================= */
-
 .card-float{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:25px;
-border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
-transition:0.35s;
-width:100%;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    transition:0.35s;
+    width:100%;
 }
 
 .card-float:hover{
-transform:translateY(-8px) scale(1.02);
-box-shadow:0 15px 40px rgba(0,0,0,0.7);
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 15px 40px rgba(0,0,0,0.7);
 }
 
 .titulo-seccion{
-margin-bottom:15px;
-color:#ffeb3b;
-font-size:1.2rem;
+    margin-bottom:15px;
+    color:#ffeb3b;
+    font-size:1.2rem;
 }
-
 
 /* =========================
 GRID DATOS
 ========================= */
-
 .grid-datos{
-display:grid;
-gap:10px;
+    display:grid;
+    gap:10px;
 }
 
 .dato{
-background:rgba(255,255,255,0.08);
-padding:10px;
-border-radius:10px;
-word-break:break-word;
+    background:rgba(255,255,255,0.08);
+    padding:10px;
+    border-radius:10px;
+    word-break:break-word;
+    color:#fff;
 }
 
 .etiqueta{
-font-size:0.85rem;
-opacity:0.8;
+    font-size:0.85rem;
+    opacity:0.8;
 }
-
 
 /* =========================
 CHIPS HABILIDADES
 ========================= */
-
 .chips-container{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 .chips-container div{
-background:#ffeb3b;
-color:#000;
-padding:6px 12px;
-border-radius:20px;
-font-size:0.85rem;
-font-weight:600;
-transition:0.3s;
+    background:#ffeb3b;
+    color:#000;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:0.85rem;
+    font-weight:600;
+    transition:0.3s;
 }
 
 .chips-container div:hover{
-transform:scale(1.05);
+    transform:scale(1.05);
 }
-
-
-/* =========================
-TIMELINE ACTIVIDADES
-========================= */
-
-.timeline-section{
-margin-top:20px;
-}
-
-.timeline{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
-
 
 /* =========================
 TABLAS RESPONSIVAS
 ========================= */
-
 .tabla-responsive{
-width:100%;
-overflow-x:auto;
+    width:100%;
+    overflow-x:auto;
 }
 
 table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
-table-layout:fixed;
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+    table-layout:fixed;
 }
 
 thead{
-background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.6);
 }
 
 thead th{
-padding:12px;
-text-align:left;
-font-size:0.9rem;
-color:#ffeb3b;
+    padding:12px;
+    text-align:left;
+    font-size:0.9rem;
+    color:#ffeb3b;
 }
 
 tbody td{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.1);
-font-size:0.9rem;
-word-break:break-word;
-overflow-wrap:anywhere;
+    padding:10px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    font-size:0.9rem;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+    color:#000; /* <- TEXTO DE CELDAS NEGRO PARA CONTRASTE */
 }
 
 tbody tr{
-background:rgba(255,255,255,0.05);
-transition:0.25s;
+    background:rgba(255,255,255,0.05);
+    transition:0.25s;
 }
 
 tbody tr:hover{
-background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.12);
 }
-
 
 /* =========================
 FOOTER
 ========================= */
-
 footer{
-background:rgba(0,0,0,0.9);
-padding:20px;
-text-align:center;
-border-top:3px solid #ffeb3b;
-margin-top:30px;
+    background:rgba(0,0,0,0.9);
+    padding:20px;
+    text-align:center;
+    border-top:3px solid #ffeb3b;
+    margin-top:30px;
 }
-
 
 /* =========================
 BADGES
 ========================= */
-
 .badge{
-padding:4px 10px;
-border-radius:12px;
-font-size:0.8rem;
-font-weight:600;
-display:inline-block;
+    padding:4px 10px;
+    border-radius:12px;
+    font-size:0.8rem;
+    font-weight:600;
+    display:inline-block;
 }
 
 .badge-activo{
-background:#4caf50;
+    background:#4caf50;
 }
 
 .badge-vencido{
-background:#f44336;
+    background:#f44336;
 }
 
 .badge-pendiente{
-background:#ff9800;
+    background:#ff9800;
 }
-
 
 /* =========================
 ANIMACIONES SCROLL
 ========================= */
-
 .tarjeta{
-opacity:0;
-transform:translateY(30px);
-transition:0.6s ease;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.6s ease;
 }
 
 .tarjeta.visible{
-opacity:1;
-transform:translateY(0);
+    opacity:1;
+    transform:translateY(0);
 }
-
 
 /* =========================
 ACORDEON
 ========================= */
-
 .acordeon-contenido{
-max-height:0;
-overflow:hidden;
-transition:max-height 0.4s ease;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
 }
 
 .acordeon-contenido.abierto{
-max-height:500px;
+    max-height:500px;
 }
-
 
 /* =========================
 RESPONSIVE
 ========================= */
-
 @media (max-width:768px){
-
-.hero-contenido{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-datos{
-justify-content:center;
-}
-
-.grid-dashboard{
-grid-template-columns:1fr;
-}
-
-table{
-font-size:0.85rem;
-}
-
+    .hero-contenido{
+        flex-direction:column;
+        text-align:center;
+    }
+    .hero-datos{
+        justify-content:center;
+    }
+    .grid-dashboard{
+        grid-template-columns:1fr;
+    }
+    table{
+        font-size:0.85rem;
+    }
 }
 
 @media (max-width:480px){
-
-nav ul{
-justify-content:center;
-gap:15px;
-}
-
-.hero-nombre{
-font-size:1.6rem;
-}
-
-.card-float{
-padding:18px;
-}
-
-table{
-font-size:0.8rem;
-}
-
+    nav ul{
+        justify-content:center;
+        gap:15px;
+    }
+    .hero-nombre{
+        font-size:1.6rem;
+    }
+    .card-float{
+        padding:18px;
+    }
+    table{
+        font-size:0.8rem;
+    }
 }
