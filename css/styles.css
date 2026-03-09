@@ -266,7 +266,7 @@ CHIPS HABILIDADES
 }
 
 /* =========================
-TABLAS RESPONSIVAS
+TABLAS RESPONSIVAS MEJORADAS
 ========================= */
 .tabla-responsive{
     width:100%;
@@ -278,40 +278,49 @@ table{
     border-collapse:collapse;
     margin-top:10px;
     table-layout:fixed;
+    background:#fff;
+    color:#333;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
 }
 
-/* CABECERAS */
+/* CABECERA */
 thead{
-    background:rgba(0,0,0,0.6);
+    background:linear-gradient(90deg,#ffeb3b,#fbc02d);
 }
 
 thead th{
-    padding:12px;
+    padding:14px;
     text-align:left;
     font-size:0.9rem;
-    color:#ffeb3b;
+    color:#1a1a1a;
+    font-weight:700;
 }
 
-/* CUERPO DE TABLAS */
+/* CELDAS */
 tbody td{
-    padding:10px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    padding:12px;
     font-size:0.9rem;
+    border-bottom:1px solid #eee;
     word-break:break-word;
     overflow-wrap:anywhere;
-    color:#000; /* TEXTO NEGRO PARA CONTRASTE */
-    background: #fff; /* FONDO BLANCO PARA CELDAS */
-    border-radius:4px;
 }
 
-/* FILAS AL PASAR EL MOUSE */
+/* FILAS */
 tbody tr{
-    background:rgba(255,255,255,0.05);
+    background:linear-gradient(90deg,#fff8e1,#fffde7);
     transition:0.25s;
 }
 
+tbody tr:nth-child(even){
+    background:linear-gradient(90deg,#fffde7,#fff8e1);
+}
+
 tbody tr:hover{
-    background:rgba(255,255,255,0.12);
+    background:linear-gradient(90deg,#ffeb3b,#fff176);
+    transform:translateY(-2px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.25);
 }
 
 /* =========================
@@ -383,12 +392,15 @@ RESPONSIVE
         flex-direction:column;
         text-align:center;
     }
+
     .hero-datos{
         justify-content:center;
     }
+
     .grid-dashboard{
         grid-template-columns:1fr;
     }
+
     table{
         font-size:0.85rem;
     }
@@ -399,12 +411,15 @@ RESPONSIVE
         justify-content:center;
         gap:15px;
     }
+
     .hero-nombre{
         font-size:1.6rem;
     }
+
     .card-float{
         padding:18px;
     }
+
     table{
         font-size:0.8rem;
     }
