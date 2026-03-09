@@ -23,33 +23,55 @@ overflow-x:auto;
 }
 
 /* TABLAS */
-/* TABLAS */
 
 .tabla-datos{
 width:100%;
 border-collapse:collapse;
 min-width:600px;
 
-/* estilo transparente tipo dashboard */
+/* estilo vidrio tipo dashboard */
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(8px);
 border-radius:10px;
 overflow:hidden;
 }
 
-.tabla-datos th,
+/* CABECERAS */
+
+.tabla-datos th{
+padding:12px;
+text-align:left;
+border-bottom:1px solid rgba(255,255,255,0.15);
+word-break:break-word;
+
+background:rgba(0,0,0,0.65);
+color:#ffeb3b;
+font-weight:600;
+}
+
+/* CELDAS CON DATOS */
+
 .tabla-datos td{
 padding:10px;
 text-align:left;
-border-bottom:1px solid rgba(255,255,255,0.1);
+border-bottom:1px solid rgba(0,0,0,0.08);
 word-break:break-word;
-color:#fff;
+
+background:rgba(255,255,255,0.92);
+color:#1a1a1a;
 }
 
-.tabla-datos th{
-background:rgba(0,0,0,0.6);
-color:#ffeb3b;
-font-weight:600;
+/* FILAS ALTERNADAS */
+
+.tabla-datos tbody tr:nth-child(even) td{
+background:rgba(255,255,255,0.85);
+}
+
+/* EFECTO HOVER */
+
+.tabla-datos tbody tr:hover td{
+background:#fff3a0;
+transition:0.2s;
 }
 
 /* MEJORAS PARA CELULAR */
