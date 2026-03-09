@@ -101,16 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (errorCap) {
       console.error("Error consultando capacitaciones:", errorCap);
     } else {
-      const listaCap = document.getElementById("lista-capacitaciones");
-      if (listaCap) {
-        listaCap.innerHTML = "";
-        capacitaciones.forEach(cap => {
-          const chip = document.createElement("div");
-          chip.classList.add("chip");
-          chip.textContent = cap.nombre;
-          listaCap.appendChild(chip);
-        });
-      }
+      cargarChips("lista-capacitaciones", capacitaciones?.map(c => c.nombre).join(","));
     }
 
     /* =========================
@@ -124,25 +115,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (errorEsp) {
       console.error("Error consultando especializaciones:", errorEsp);
     } else {
-      const listaEsp = document.getElementById("lista-especializaciones");
-      if (listaEsp) {
-        listaEsp.innerHTML = "";
-        especializaciones.forEach(esp => {
-          const chip = document.createElement("div");
-          chip.classList.add("chip");
-          chip.textContent = esp.nombre;
-          listaEsp.appendChild(chip);
-        });
-      }
+      cargarChips("lista-especializaciones", especializaciones?.map(e => e.nombre).join(","));
     }
 
     /* =========================
-    ACTIVIDADES (desde participaciones)
+    FUNCION FORMATEAR FECHA
+    ========================= */
+    const formatearFecha = (fechaISO) => {
+      if (!fechaISO) return "";
+      const fecha = new Date(fechaISO);
+      return fecha.toLocaleDateString("es-BO", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    };
+
+    /* =========================
+    ACTIVIDADES
     ========================= */
     const { data: participaciones, error: errorAct } = await supabaseClient
       .from("participaciones")
       .select(`
-        rol,
         actividades (
           nombre,
           descripcion,
@@ -164,8 +160,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           fila.innerHTML = `
             <td>${act?.nombre ?? ""}</td>
             <td>${act?.descripcion ?? ""}</td>
-            <td>${act?.start_at ?? ""}</td>
-            <td>${act?.end_at ?? ""}</td>
+            <td>${formatearFecha(act?.start_at)}</td>
+            <td>${formatearFecha(act?.end_at)}</td>
           `;
           tablaAct.appendChild(fila);
         });
@@ -173,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     /* =========================
-    AUTORIZACIONES (desde autorizaciones_evento)
+    AUTORIZACIONES
     ========================= */
     const { data: autorizaciones, error: errorAut } = await supabaseClient
       .from("autorizaciones_evento")
@@ -196,8 +192,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           fila.innerHTML = `
             <td>${a.actividades?.nombre ?? ""}</td>
             <td>${a.status ?? ""}</td>
-            <td>${a.valid_from ?? ""}</td>
-            <td>${a.valid_until ?? ""}</td>
+            <td>${formatearFecha(a.valid_from)}</td>
+            <td>${formatearFecha(a.valid_until)}</td>
           `;
           tablaAut.appendChild(fila);
         });
