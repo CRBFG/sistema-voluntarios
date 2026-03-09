@@ -280,6 +280,7 @@ table{
     table-layout:fixed;
 }
 
+/* CABECERAS */
 thead{
     background:rgba(0,0,0,0.6);
 }
@@ -291,15 +292,19 @@ thead th{
     color:#ffeb3b;
 }
 
+/* CUERPO DE TABLAS */
 tbody td{
     padding:10px;
     border-bottom:1px solid rgba(255,255,255,0.1);
     font-size:0.9rem;
     word-break:break-word;
     overflow-wrap:anywhere;
-    color:#000; /* <- TEXTO DE CELDAS NEGRO PARA CONTRASTE */
+    color:#000; /* TEXTO NEGRO PARA CONTRASTE */
+    background: #fff; /* FONDO BLANCO PARA CELDAS */
+    border-radius:4px;
 }
 
+/* FILAS AL PASAR EL MOUSE */
 tbody tr{
     background:rgba(255,255,255,0.05);
     transition:0.25s;
