@@ -281,15 +281,12 @@ table{
     margin-top:10px;
     table-layout:fixed;
 
-    /* estilo vidrio como las cards */
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
 
     border-radius:12px;
     overflow:hidden;
     box-shadow:0 8px 25px rgba(0,0,0,0.4);
-
-    color:#fff;
 }
 
 /* CABECERA */
@@ -312,21 +309,22 @@ tbody td{
     border-bottom:1px solid rgba(255,255,255,0.08);
     word-break:break-word;
     overflow-wrap:anywhere;
+
+    color:#1a1a1a; /* texto oscuro */
+    background:rgba(255,255,255,0.85); /* fondo claro suave */
 }
 
 /* FILAS */
 tbody tr{
-    background:rgba(255,255,255,0.04);
     transition:0.25s;
 }
 
-tbody tr:nth-child(even){
-    background:rgba(255,255,255,0.02);
+tbody tr:nth-child(even) td{
+    background:rgba(255,255,255,0.75);
 }
 
-tbody tr:hover{
-    background:rgba(255,235,59,0.15);
-    transform:translateY(-2px);
+tbody tr:hover td{
+    background:#fff3a0;
 }
 
 
