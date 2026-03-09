@@ -265,9 +265,11 @@ CHIPS HABILIDADES
     transform:scale(1.05);
 }
 
+
 /* =========================
-TABLAS RESPONSIVAS MEJORADAS
+TABLAS RESPONSIVAS (ESTILO DASHBOARD)
 ========================= */
+
 .tabla-responsive{
     width:100%;
     overflow-x:auto;
@@ -278,23 +280,28 @@ table{
     border-collapse:collapse;
     margin-top:10px;
     table-layout:fixed;
-    background:#fff;
-    color:#333;
+
+    /* estilo vidrio como las cards */
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+
     border-radius:12px;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    box-shadow:0 8px 25px rgba(0,0,0,0.4);
+
+    color:#fff;
 }
 
 /* CABECERA */
 thead{
-    background:linear-gradient(90deg,#ffeb3b,#fbc02d);
+    background:rgba(0,0,0,0.55);
 }
 
 thead th{
     padding:14px;
     text-align:left;
     font-size:0.9rem;
-    color:#1a1a1a;
+    color:#ffeb3b;
     font-weight:700;
 }
 
@@ -302,26 +309,26 @@ thead th{
 tbody td{
     padding:12px;
     font-size:0.9rem;
-    border-bottom:1px solid #eee;
+    border-bottom:1px solid rgba(255,255,255,0.08);
     word-break:break-word;
     overflow-wrap:anywhere;
 }
 
 /* FILAS */
 tbody tr{
-    background:linear-gradient(90deg,#fff8e1,#fffde7);
+    background:rgba(255,255,255,0.04);
     transition:0.25s;
 }
 
 tbody tr:nth-child(even){
-    background:linear-gradient(90deg,#fffde7,#fff8e1);
+    background:rgba(255,255,255,0.02);
 }
 
 tbody tr:hover{
-    background:linear-gradient(90deg,#ffeb3b,#fff176);
+    background:rgba(255,235,59,0.15);
     transform:translateY(-2px);
-    box-shadow:0 4px 15px rgba(0,0,0,0.25);
 }
+
 
 /* =========================
 FOOTER
