@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Perfil del Voluntario - Cruz Roja</title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+
+/* CONTENEDOR RESPONSIVO PARA TABLAS */
+
+.tabla-responsive{
+width:100%;
+overflow-x:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+/* TABLAS */
+
+.tabla-datos{
+width:100%;
+border-collapse:collapse;
+min-width:600px;
+background:white;
+}
+
+.tabla-datos th,
+.tabla-datos td{
+padding:10px;
+text-align:left;
+border-bottom:1px solid #e5e5e5;
+word-break:break-word;
+}
+
+.tabla-datos th{
+background:#f5f5f5;
+font-weight:600;
+}
+
+/* MEJORAS PARA CELULAR */
+
+@media (max-width:768px){
+
+.hero-contenido{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-foto img{
+max-width:140px;
+}
+
+.hero-datos{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+}
+
+.grid-dashboard{
+grid-template-columns:1fr;
+}
+
+.tabla-datos{
+font-size:14px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+<div class="logo-titulo">
+<img src="LOGO.jpg" alt="Logo Cruz Roja" class="logo">
+<h2>Cruz Roja Boliviana Filial Guayaramerín</h2>
+</div>
+
+<nav>
+<ul class="menu">
+<li>
+<a href="index.html">
+<i class="fa-solid fa-house"></i> Inicio
+</a>
+</li>
+<li>
+<a href="voluntarios.html">
+<i class="fa-solid fa-users"></i> Voluntarios
+</a>
+</li>
+<li>
+<a href="programas.html">
+<i class="fa-solid fa-hand-holding-heart"></i> Programas
+</a>
+</li>
+<li>
+<a href="https://wa.me/59173952743" target="_blank">
+<i class="fa-solid fa-envelope"></i> Contacto
+</a>
+</li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO DEL VOLUNTARIO -->
+
+<section class="perfil-hero">
+<div class="hero-contenido">
+
+<div class="hero-foto">
+<img id="foto" src="LOGO.jpg" alt="Foto del voluntario" loading="lazy">
+</div>
+
+<div class="hero-info">
+
+<h2 class="hero-nombre">
+<span id="nombre"></span>
+<span id="apellido"></span>
+</h2>
+
+<div class="hero-cargo">
+<i class="fa-solid fa-user-shield"></i>
+<span id="cargo"></span>
+</div>
+
+<div class="hero-datos">
+
+<div class="hero-dato">
+<i class="fa-solid fa-id-badge"></i>
+<span>ID</span>
+<strong id="id"></strong>
+</div>
+
+<div class="hero-dato">
+<i class="fa-solid fa-calendar"></i>
+<span>Ingreso</span>
+<strong id="anio_ingreso"></strong>
+</div>
+
+<div class="hero-dato">
+<i class="fa-solid fa-phone"></i>
+<span>Teléfono</span>
+<strong id="telefono"></strong>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<main class="dashboard-voluntario">
+
+<div class="grid-dashboard">
+
+<!-- DATOS PERSONALES -->
+
+<section class="card-float">
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-user"></i> Datos Personales
+</h3>
+
+<div class="grid-datos">
+
+<div class="dato">
+<span class="etiqueta">
+<i class="fa-solid fa-id-card"></i> CI
+</span>
+<span id="ci"></span>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO EMERGENCIA -->
+
+<section class="card-float">
+
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-triangle-exclamation"></i>
+Contacto de Emergencia
+</h3>
+
+<div class="grid-datos">
+
+<div class="dato">
+<span class="etiqueta">
+<i class="fa-solid fa-user"></i> Nombre
+</span>
+<span id="emergencia_nombre"></span>
+</div>
+
+<div class="dato">
+<span class="etiqueta">
+<i class="fa-solid fa-phone"></i> Teléfono
+</span>
+<span id="emergencia_telefono"></span>
+</div>
+
+</div>
+</section>
+
+<!-- CAPACITACIONES -->
+
+<section class="card-float">
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-graduation-cap"></i> Capacitaciones
+</h3>
+
+<div id="lista-capacitaciones" class="chips-container"></div>
+</section>
+
+<!-- ESPECIALIZACIONES -->
+
+<section class="card-float">
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-star"></i> Especializaciones
+</h3>
+
+<div id="lista-especializaciones" class="chips-container"></div>
+</section>
+
+</div>
+
+<!-- ACTIVIDADES -->
+
+<section class="timeline-section">
+
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-list-check"></i>
+Actividades del Voluntario
+</h3>
+
+<div class="tabla-responsive">
+
+<table class="tabla-datos">
+
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Descripción</th>
+<th>Inicio</th>
+<th>Fin</th>
+</tr>
+</thead>
+
+<tbody id="tabla-actividades"></tbody>
+
+</table>
+
+</div>
+</section>
+
+<!-- AUTORIZACIONES -->
+
+<section class="card-float">
+
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-shield-halved"></i>
+Autorizaciones
+</h3>
+
+<div class="tabla-responsive">
+
+<table class="tabla-datos">
+
+<thead>
+<tr>
+<th>Actividad</th>
+<th>Status</th>
+<th>Válido Desde</th>
+<th>Válido Hasta</th>
+</tr>
+</thead>
+
+<tbody id="tabla-autorizaciones"></tbody>
+
+</table>
+
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div class="footer-info">
+
+<p>
+Humanidad, Imparcialidad, Neutralidad,
+Independencia, Voluntariado,
+Unidad, Universalidad
+</p>
+
+<p>© 2026 Uso exclusivo – Derechos reservados</p>
+
+</div>
+
+</footer>
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-datos.js"></script>
+
+<script src="js/perfil.js"></script>
+
+<script src="js/animaciones.js"></script>
+
+<script src="js/accordion.js"></script>
+
+</body>
+</html>

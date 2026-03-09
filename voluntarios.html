@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Iconos FontAwesome (fuente oficial) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <title>Voluntarios - Cruz Roja</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #d32f2f, #1976d2);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 55px;
+    }
+
+    .logo-titulo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #ffeb3b;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* GRID VOLUNTARIOS */
+    .grid-voluntarios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card-voluntario {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: .3s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-voluntario:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-voluntario img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-voluntario i {
+      font-size: 40px;
+      color: #ffeb3b;
+      margin-bottom: 15px;
+    }
+
+    .nombre {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .area {
+      font-size: .9rem;
+      opacity: .9;
+    }
+
+    .estado {
+      margin-top: 10px;
+      font-size: .8rem;
+      background: #4caf50;
+      padding: 4px 10px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="logo-titulo">
+      <img src="LOGO.jpg" alt="Logo Cruz Roja" class="logo">
+      <h2>Cruz Roja Boliviana Filial Guayaramerín</h2>
+    </div>
+
+    <nav>
+  <ul class="menu">
+    <li>
+      <a href="index.html" onclick="if(window.location.pathname.endsWith('index.html')){location.reload();}">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+    </li>
+    <li>
+      <a href="voluntarios.html" onclick="if(window.location.pathname.endsWith('voluntarios.html')){location.reload();}">
+        <i class="fa-solid fa-users"></i> Voluntarios
+      </a>
+    </li>
+    <li>
+      <a href="programas.html" onclick="if(window.location.pathname.endsWith('programas.html')){location.reload();}">
+        <i class="fa-solid fa-hand-holding-heart"></i> Programas
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/59173952743" target="_blank">
+        <i class="fa-solid fa-envelope"></i> Contacto
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  </header>
+
+  <!-- CONTENIDO -->
+  <main>
+    <div class="titulo">
+      <h2>Voluntarios</h2>
+      <p>Listado general del personal voluntario activo.</p>
+      <p>Para acceder a información detallada es necesario escanear el código QR de la credencial oficial.</p>
+    </div>
+
+    <div class="grid-voluntarios" id="listaVoluntarios">
+      <!-- Aquí se cargarán automáticamente los voluntarios desde JSON -->
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>
+      Humanidad, Imparcialidad, Neutralidad,
+      Independencia, Voluntariado,
+      Unidad, Universalidad
+    </p>
+    <p>© 2026 Uso exclusivo – Derechos reservados</p>
+  </footer>
+
+  <!-- SCRIPT PARA CARGAR VOLUNTARIOS -->
+  <script>
+    async function cargarVoluntarios() {
+      try {
+        const respuesta = await fetch("data/voluntarios.json");
+        const datos = await respuesta.json();
+
+        const contenedor = document.getElementById("listaVoluntarios");
+        contenedor.innerHTML = "";
+
+        datos.voluntarios.forEach(v => {
+          const card = document.createElement("div");
+          card.className = "card-voluntario";
+
+          card.innerHTML = `
+            <img src="${v.foto ?? 'LOGO.jpg'}" alt="${v.nombre} ${v.apellido}">
+            <div class="nombre">${v.nombre} ${v.apellido}</div>
+            <div class="area">${v.cargo}</div>
+            <div class="estado">Activo</div>
+          `;
+
+          contenedor.appendChild(card);
+        });
+      } catch (error) {
+        console.error("Error cargando voluntarios:", error);
+        document.getElementById("listaVoluntarios").innerHTML =
+          "<p>No se pudieron cargar los voluntarios.</p>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", cargarVoluntarios);
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+{
+  "voluntarios": [
+    {
+      "id": "CRBF-GYA-001",
+      "ci": "1234567",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "cargo": "Voluntario",
+      "telefono": "72800001",
+      "anio_ingreso": "2022",
+      "foto": "fotos/CRBF-GYA-001.jpg",
+      "emergencia": {
+        "nombre": "Maria Perez",
+        "telefono": "72800002"
+      }
+    },
+    {
+      "id": "CRBF-GYA-002",
+      "ci": "2345678",
+      "nombre": "Luis",
+      "apellido": "Gomez",
+      "cargo": "Socorrista",
+      "telefono": "72800003",
+      "anio_ingreso": "2021",
+      "foto": "fotos/CRBF-GYA-002.jpg",
+      "emergencia": {
+        "nombre": "Ana Gomez",
+        "telefono": "72800004"
+      }
+    },
+    {
+      "id": "CRBF-GYA-003",
+      "ci": "3456789",
+      "nombre": "Carlos",
+      "apellido": "Rojas",
+      "cargo": "Instructor",
+      "telefono": "72800005",
+      "anio_ingreso": "2020",
+      "foto": "fotos/CRBF-GYA-003.jpg",
+      "emergencia": {
+        "nombre": "Rosa Rojas",
+        "telefono": "72800006"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+/* Animación de entrada */
+.info-proyecto {
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 15px;
+  line-height: 1.6;
+  animation: aparecer 2s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Título con ícono mágico */
+.info-proyecto h2 {
+  margin-bottom: 20px;
+  color: #ffeb3b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Íconos dentro de los párrafos */
+.info-proyecto p i {
+  color: #ffeb3b;
+  margin-right: 8px;
+  animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación opcional ilustrada */
+.animacion {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.versiones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.fase {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  animation: aparecer 1.5s ease-out;
+}
+
+.fase h3 {
+  color: #ffeb3b;
+  margin-bottom: 15px;
+}
+
+.fase p {
+  margin-bottom: 8px;
+}
+
+.fase.futura {
+  background: rgba(0,0,0,0.6);
+}

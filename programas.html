@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Programas - Cruz Roja</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#d32f2f,#1976d2);
+color:white;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* HEADER */
+
+.header{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+flex-wrap:wrap;
+}
+
+.logo{
+height:55px;
+}
+
+.logo-titulo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.menu{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+.menu a{
+text-decoration:none;
+color:#ffeb3b;
+font-weight:600;
+transition:.3s;
+}
+
+.menu a:hover{
+color:white;
+}
+
+/* MAIN */
+
+main{
+flex:1;
+padding:40px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.titulo{
+text-align:center;
+margin-bottom:40px;
+}
+
+/* PROGRAMAS */
+
+.grid-programas{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-bottom:60px;
+}
+
+.programa{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transition:.3s;
+}
+
+.programa:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.6);
+}
+
+.programa i{
+font-size:40px;
+color:#ffeb3b;
+margin-bottom:15px;
+}
+
+.programa h3{
+margin-bottom:10px;
+}
+
+/* SECCION INFO SISTEMA */
+
+.info-proyecto{
+margin-top:40px;
+}
+
+.info-proyecto h2{
+margin-bottom:20px;
+}
+
+/* ACORDEON */
+
+.acordeon{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+}
+
+.acordeon-item{
+background:rgba(255,255,255,0.1);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+.acordeon-btn{
+width:100%;
+background:transparent;
+border:none;
+padding:18px 20px;
+color:#ffeb3b;
+font-size:1.05rem;
+font-weight:600;
+text-align:left;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.acordeon-btn i{
+margin-right:10px;
+}
+
+.acordeon-contenido{
+max-height:0;
+overflow:hidden;
+transition:max-height .4s ease;
+padding:0 20px;
+}
+
+.acordeon-contenido p{
+margin:10px 0;
+}
+
+.acordeon-item.activo .acordeon-contenido{
+max-height:600px;
+padding-bottom:15px;
+}
+
+/* ANIMACION */
+
+.animacion{
+display:flex;
+justify-content:center;
+margin-top:40px;
+}
+
+/* FOOTER */
+
+.footer{
+background:rgba(0,0,0,0.8);
+text-align:center;
+padding:20px;
+margin-top:auto;
+font-size:.9rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.menu{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo-titulo">
+<img src="LOGO.jpg" alt="Logo Cruz Roja" class="logo">
+<h2>Cruz Roja Boliviana Filial Guayaramerín</h2>
+</div>
+
+<nav>
+<ul class="menu">
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-house"></i> Inicio
+</a>
+</li>
+
+<li>
+<a href="voluntarios.html">
+<i class="fa-solid fa-users"></i> Voluntarios
+</a>
+</li>
+
+<li>
+<a href="programas.html">
+<i class="fa-solid fa-hand-holding-heart"></i> Programas
+</a>
+</li>
+
+<li>
+<a href="https://wa.me/59173952743" target="_blank">
+<i class="fa-solid fa-envelope"></i> Contacto
+</a>
+</li>
+
+</ul>
+</nav>
+
+</header>
+
+<main>
+
+<div class="titulo">
+<h2>Programas y Áreas de Trabajo</h2>
+<p>Actividades y áreas en las que participan los voluntarios.</p>
+</div>
+
+<section class="grid-programas">
+
+<div class="programa">
+<i class="fa-solid fa-kit-medical"></i>
+<h3>Primeros Auxilios</h3>
+<p>Atención básica en emergencias médicas y apoyo en eventos comunitarios.</p>
+</div>
+
+<div class="programa">
+<i class="fa-solid fa-helmet-safety"></i>
+<h3>Rescate</h3>
+<p>Intervención en situaciones de emergencia, desastres y rescate de personas.</p>
+</div>
+
+<div class="programa">
+<i class="fa-solid fa-truck-medical"></i>
+<h3>Logística</h3>
+<p>Organización de recursos, equipos y apoyo operativo en actividades.</p>
+</div>
+
+<div class="programa">
+<i class="fa-solid fa-people-group"></i>
+<h3>Apoyo Comunitario</h3>
+<p>Actividades educativas, campañas de salud y apoyo a la comunidad.</p>
+</div>
+
+</section>
+
+<section class="info-proyecto">
+
+<h2><i class="fa-solid fa-wand-magic-sparkles"></i> Sobre este sistema</h2>
+
+<div class="acordeon">
+
+<div class="acordeon-item">
+
+<button class="acordeon-btn">
+<span>
+<i class="fa-solid fa-circle-check"></i>
+Versión Inicial (Fase 1)
+</span>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+
+<div class="acordeon-contenido">
+
+<p>✔ Antes, una credencial sencilla solo mostraba el nombre y la foto.</p>
+<p>✔ Al escanear el código QR se abre un perfil digital del voluntario.</p>
+<p>✔ Se pueden ver foto, nombre, cargo, especialidad y estado institucional.</p>
+<p>✔ Permite registrar actividades y permisos sin depender de registros en papel.</p>
+<p>✔ Representa un avance respecto a las credenciales tradicionales.</p>
+
+</div>
+
+</div>
+
+<div class="acordeon-item">
+
+<button class="acordeon-btn">
+<span>
+<i class="fa-solid fa-layer-group"></i>
+Versión Completa (Fase 2)
+</span>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+
+<div class="acordeon-contenido">
+
+<p>🔹 Actualización de información en tiempo real.</p>
+<p>🔹 Panel administrativo para gestionar voluntarios.</p>
+<p>🔹 Registro digital de capacitaciones y asistencia.</p>
+<p>🔹 Reportes institucionales automáticos.</p>
+<p>🔹 Control de participación en campañas y operativos.</p>
+<p>🔹 Evolución hacia un sistema completo de gestión institucional.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="animacion">
+<lottie-player
+src="animaciones/qr.json"
+background="transparent"
+speed="1"
+style="width:300px;height:300px"
+loop autoplay>
+</lottie-player>
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<p>
+Humanidad, Imparcialidad, Neutralidad,
+Independencia, Voluntariado,
+Unidad, Universalidad
+</p>
+
+<p>© 2026 Uso exclusivo – Derechos reservados</p>
+
+</footer>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script>
+
+document.querySelectorAll(".acordeon-btn").forEach(btn=>{
+btn.addEventListener("click",()=>{
+
+const item=btn.parentElement
+const abierto=document.querySelector(".acordeon-item.activo")
+
+if(abierto && abierto!==item){
+abierto.classList.remove("activo")
+}
+
+item.classList.toggle("activo")
+
+})
+})
+
+</script>
+
+</body>
+</html>

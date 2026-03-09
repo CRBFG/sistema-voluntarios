@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Sistema de Gestión - Cruz Roja</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* BODY */
+
+body{
+background:linear-gradient(135deg,#d32f2f,#1976d2);
+color:white;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+
+/* HEADER */
+
+.header{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+flex-wrap:wrap;
+}
+
+.logo{
+height:55px;
+}
+
+.logo-titulo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.menu{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+.menu a{
+text-decoration:none;
+color:#ffeb3b;
+font-weight:600;
+transition:.3s;
+}
+
+.menu a:hover{
+color:white;
+}
+
+
+/* HERO */
+
+.perfil-hero{
+padding:50px 20px;
+display:flex;
+justify-content:center;
+}
+
+.hero-contenido{
+display:flex;
+align-items:center;
+gap:40px;
+max-width:1000px;
+flex-wrap:wrap;
+}
+
+.hero-foto img{
+width:220px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+.hero-info{
+max-width:500px;
+}
+
+.hero-nombre{
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.hero-cargo{
+margin-bottom:15px;
+color:#ffeb3b;
+}
+
+.hero-descripcion{
+line-height:1.6;
+}
+
+
+/* MAIN */
+
+.dashboard-voluntario{
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
+width:100%;
+}
+
+
+/* TARJETAS */
+
+.card-float{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+backdrop-filter:blur(12px);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+margin-bottom:30px;
+}
+
+
+/* TITULOS */
+
+.titulo-seccion{
+margin-bottom:25px;
+font-size:1.4rem;
+color:#ffeb3b;
+}
+
+
+/* PANEL ESTADISTICAS */
+
+.panel-estadisticas{
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:35px;
+align-items:center;
+}
+
+
+/* INFO LATERAL */
+
+.info-estadisticas{
+background:rgba(0,0,0,0.3);
+padding:20px;
+border-radius:12px;
+line-height:1.6;
+}
+
+.info-estadisticas ul{
+list-style:none;
+margin-top:15px;
+}
+
+.info-estadisticas li{
+margin-bottom:10px;
+}
+
+.info-estadisticas i{
+color:#ffeb3b;
+margin-right:6px;
+}
+
+
+/* GRID ESTADISTICAS */
+
+.estadisticas-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+
+/* TARJETAS ESTADISTICAS */
+
+.stat-card{
+background:rgba(255,255,255,0.12);
+padding:25px;
+border-radius:12px;
+text-align:center;
+transition:.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,0.6);
+}
+
+.stat-icon{
+font-size:1.8rem;
+margin-bottom:10px;
+color:#ffeb3b;
+}
+
+.stat-card h3{
+font-size:2rem;
+margin-bottom:5px;
+}
+
+.stat-card p{
+font-size:.9rem;
+opacity:.9;
+}
+
+
+/* ESTADO OPERATIVO */
+
+.estado-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+
+/* FOOTER */
+
+.footer{
+background:rgba(0,0,0,0.8);
+text-align:center;
+padding:20px;
+margin-top:auto;
+font-size:.9rem;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.panel-estadisticas{
+grid-template-columns:1fr;
+}
+
+.hero-contenido{
+justify-content:center;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header class="header">
+
+<div class="logo-titulo">
+<img src="LOGO.jpg" alt="Logo Cruz Roja" class="logo">
+<h2>Cruz Roja Boliviana Filial Guayaramerín</h2>
+</div>
+
+<nav>
+  <ul class="menu">
+    <li>
+      <a href="index.html" onclick="if(window.location.pathname.endsWith('index.html')){location.reload();}">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+    </li>
+    <li>
+      <a href="voluntarios.html" onclick="if(window.location.pathname.endsWith('voluntarios.html')){location.reload();}">
+        <i class="fa-solid fa-users"></i> Voluntarios
+      </a>
+    </li>
+    <li>
+      <a href="programas.html" onclick="if(window.location.pathname.endsWith('programas.html')){location.reload();}">
+        <i class="fa-solid fa-hand-holding-heart"></i> Programas
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/59173952743" target="_blank">
+        <i class="fa-solid fa-envelope"></i> Contacto
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+</header>
+
+
+<section class="perfil-hero">
+
+<div class="hero-contenido">
+
+<div class="hero-foto">
+<img src="Voluntarios.png" alt="Cruz Roja">
+</div>
+
+<div class="hero-info">
+
+<h2 class="hero-nombre">
+Sistema de Gestión de Voluntarios
+</h2>
+
+<div class="hero-cargo">
+<i class="fa-solid fa-shield-heart"></i>
+<span>Plataforma de organización y seguimiento del voluntariado</span>
+</div>
+
+<p class="hero-descripcion">
+
+Este sistema permite organizar la información del voluntariado,
+gestionar capacitaciones, registrar actividades operativas
+y facilitar la identificación de cada miembro mediante credenciales
+con código QR.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<main class="dashboard-voluntario">
+
+
+<section class="card-float">
+
+<h3 class="titulo-seccion">
+<i class="fa-solid fa-chart-line"></i> Estadísticas del Sistema
+</h3>
+
+<div class="panel-estadisticas">
+
+
+<div class="info-estadisticas">
+
+<p>
+Las estadísticas muestran el estado actual del voluntariado dentro
+del sistema. Los datos se actualizan automáticamente cuando se
+registran nuevos miembros, capacitaciones o actividades.
+</p>
+
+<ul>
+
+<li><i class="fa-solid fa-users"></i> Voluntarios registrados</li>
+<li><i class="fa-solid fa-graduation-cap"></i> Capacitaciones completadas</li>
+<li><i class="fa-solid fa-star"></i> Especializaciones</li>
+<li><i class="fa-solid fa-truck-medical"></i> Actividades operativas</li>
+
+</ul>
+
+</div>
+
+
+<div class="estadisticas-grid">
+
+
+<div class="stat-card">
+<div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+<h3 id="totalVoluntarios">0</h3>
+<p>Voluntarios</p>
+</div>
+
+
+<div class="stat-card">
+<div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+<h3 id="totalCapacitaciones">0</h3>
+<p>Capacitaciones</p>
+</div>
+
+
+<div class="stat-card">
+<div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+<h3 id="totalEspecializaciones">0</h3>
+<p>Especializaciones</p>
+</div>
+
+
+<div class="stat-card">
+<div class="stat-icon"><i class="fa-solid fa-truck-medical"></i></div>
+<h3 id="totalActividades">0</h3>
+<p>Actividades</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+<p>
+Humanidad, Imparcialidad, Neutralidad,
+Independencia, Voluntariado,
+Unidad, Universalidad
+</p>
+
+<p>© 2026 Uso exclusivo – Derechos reservados</p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/estadisticas-supabase.js"></script>
+
+</body>
+</html>
