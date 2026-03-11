@@ -7,6 +7,7 @@ const client = supabase.createClient(supabaseUrl, supabaseKey);
 
 /* ANIMACIÓN CONTADOR */
 function animarNumero(id, valorFinal) {
+
   const elemento = document.getElementById(id);
   if (!elemento) return;
 
@@ -14,6 +15,7 @@ function animarNumero(id, valorFinal) {
   const incremento = Math.ceil(valorFinal / 40);
 
   const intervalo = setInterval(() => {
+
     inicio += incremento;
 
     if (inicio >= valorFinal) {
@@ -22,75 +24,103 @@ function animarNumero(id, valorFinal) {
     } else {
       elemento.innerText = inicio;
     }
+
   }, 30);
 }
 
 
 /* CARGAR ESTADISTICAS */
 async function cargarEstadisticas() {
+
   try {
-    /* VOLUNTARIOS JSON */
+
+    /* =========================
+    VOLUNTARIOS (DESDE SUPABASE)
+    ========================= */
+
     let totalVoluntarios = 0;
-    try {
-      const res = await fetch("data/voluntarios.json");
-      if (res.ok) {
-        const data = await res.json();
-        totalVoluntarios = data.voluntarios.length;
-      }
-    } catch (e) {
-      console.warn("No se pudo cargar voluntarios.json");
+
+    const voluntarios = await client
+      .from("voluntarios")
+      .select("*", { count: "exact", head: true });
+
+    if (voluntarios.count) {
+      totalVoluntarios = voluntarios.count;
     }
 
-    /* CAPACITACIONES ÚNICAS */
+
+    /* =========================
+    CAPACITACIONES ÚNICAS
+    ========================= */
+
     let totalCapacitaciones = 0;
+
     const cap = await client
       .from("capacitaciones")
-      .select("nombre,fecha_inicio");
+      .select("nombre");
 
     if (cap.data) {
+
       const capacitacionesUnicas = new Set(
-        cap.data.map(c => `${c.nombre}-${c.fecha_inicio}`)
+        cap.data.map(c => c.nombre)
       );
+
       totalCapacitaciones = capacitacionesUnicas.size;
+
     }
 
-    /* ESPECIALIZACIONES → voluntarios únicos */
+
+    /* =========================
+    ESPECIALIZACIONES ÚNICAS
+    ========================= */
+
     let totalEspecializaciones = 0;
+
     const esp = await client
       .from("especializaciones")
-      .select("voluntario_id, nombre");
+      .select("nombre");
 
     if (esp.data) {
-      // Contar voluntarios únicos por especialización
-      const mapa = new Map();
-      esp.data.forEach(e => {
-        if (!mapa.has(e.nombre)) {
-          mapa.set(e.nombre, new Set());
-        }
-        mapa.get(e.nombre).add(e.voluntario_id);
-      });
-      // Sumar todos los voluntarios únicos en cada especialización
-      totalEspecializaciones = Array.from(mapa.values())
-        .reduce((acc, set) => acc + set.size, 0);
+
+      const especializacionesUnicas = new Set(
+        esp.data.map(e => e.nombre)
+      );
+
+      totalEspecializaciones = especializacionesUnicas.size;
+
     }
 
-    /* ACTIVIDADES → contar eventos reales */
+
+    /* =========================
+    ACTIVIDADES
+    ========================= */
+
     let totalActividades = 0;
+
     const act = await client
       .from("actividades")
       .select("*", { count: "exact", head: true });
 
-    if (act.count) totalActividades = act.count;
+    if (act.count) {
+      totalActividades = act.count;
+    }
 
-    /* MOSTRAR */
+
+    /* =========================
+    MOSTRAR
+    ========================= */
+
     animarNumero("totalVoluntarios", totalVoluntarios);
     animarNumero("totalCapacitaciones", totalCapacitaciones);
     animarNumero("totalEspecializaciones", totalEspecializaciones);
     animarNumero("totalActividades", totalActividades);
 
   } catch (error) {
+
     console.error("Error cargando estadísticas:", error);
+
   }
+
 }
 
 
